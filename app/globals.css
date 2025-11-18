@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #39ff14;
+  --neon-green: #39ff14;
+  --neon-green-glow: rgba(57, 255, 20, 0.5);
+  --dark-bg: #0a0a0a;
+  --darker-bg: #050505;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-neon-green: var(--neon-green);
+  --color-dark-bg: var(--dark-bg);
+  --color-darker-bg: var(--darker-bg);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* Neon glow effects */
+.neon-text {
+  color: var(--neon-green);
+  text-shadow: 
+    0 0 10px var(--neon-green-glow),
+    0 0 20px var(--neon-green-glow),
+    0 0 30px var(--neon-green-glow);
+}
+
+.neon-border {
+  border: 2px solid var(--neon-green);
+  box-shadow: 
+    0 0 10px var(--neon-green-glow),
+    0 0 20px var(--neon-green-glow),
+    inset 0 0 10px var(--neon-green-glow);
+}
+
+.neon-glow {
+  box-shadow: 
+    0 0 15px var(--neon-green-glow),
+    0 0 30px var(--neon-green-glow),
+    0 0 45px var(--neon-green-glow);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
